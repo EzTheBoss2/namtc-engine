@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>select = global.menuSelectPrev[1];
 
-xSelector = 124;
-ySelector = 132;
+xSelector = x;
+ySelector = y;
 xSeperation = 550;
 ySeperation = 48;
 
