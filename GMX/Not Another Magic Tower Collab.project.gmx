@@ -166,6 +166,9 @@
       <sprite>sprites\sprAllSeeingEye</sprite>
     </sprites>
     <sprite>sprites\sprBattleHeart_Large</sprite>
+    <sprites name="test commits">
+      <sprite>sprites\sprMiyamoto</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bAllTiles</background>
