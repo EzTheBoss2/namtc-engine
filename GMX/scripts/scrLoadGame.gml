@@ -148,12 +148,14 @@ if (saveMap != -1)  //check if the save map loaded correctly
     global.kidDEF =   ds_map_find_value(saveMap, "kidDEF")
     global.kidEXP =   ds_map_find_value(saveMap, "kidEXP")
     global.kidLevel = ds_map_find_value(saveMap, "kidLevel")
+    global.persistentKeys = ds_map_find_value(saveMap, "persistentKeys")
     
     global.save_kidHP =    global.kidHP
     global.save_kidATK =   global.kidATK
     global.save_kidDEF =   global.kidDEF
     global.save_kidEXP =   global.kidEXP 
     global.save_kidLevel = global.kidLevel 
+    global.save_persistentKeys = global.persistentKeys
     
     global.keyAreas = ds_map_find_value(saveMap, "keyAreas")
     for (i = 0; i < global.keyAreas; i++) {

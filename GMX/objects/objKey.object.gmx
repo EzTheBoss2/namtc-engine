@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 area = global.currentArea; // can overwrite in create code
+rainbowtimer = 0;
 </string>
           </argument>
         </arguments>
@@ -49,7 +50,16 @@ area = global.currentArea; // can overwrite in create code
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch type {
+            <string>if area == -1 {
+    type = -1;
+}
+
+switch type {
+    case -1:
+        image_blend = make_colour_hsv(rainbowtimer, 255, 255)
+        rainbowtimer = (rainbowtimer+4)%360
+        image_index = sprInfinityKey
+    break;
     case 0:
         image_blend = c_orange;
     break; case 1:
@@ -96,7 +106,11 @@ area = global.currentArea; // can overwrite in create code
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.kidKey[area, type]++
+            <string>if area != -1 {
+    global.kidKey[area, type]++
+} else {
+    global.persistentKeys++
+}
 </string>
           </argument>
         </arguments>

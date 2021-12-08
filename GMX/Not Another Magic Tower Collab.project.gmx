@@ -169,6 +169,7 @@
     <sprites name="test commits">
       <sprite>sprites\sprMiyamoto</sprite>
     </sprites>
+    <sprite>sprites\sprInfinityKey</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bAllTiles</background>

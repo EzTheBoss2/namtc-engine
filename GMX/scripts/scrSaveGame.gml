@@ -56,6 +56,7 @@ if saveStats {
     global.save_kidDEF =   global.kidDEF
     global.save_kidEXP =   global.kidEXP 
     global.save_kidLevel = global.kidLevel 
+    global.save_persistentKeys = global.persistentKeys
     for (i = 0; i < global.keyAreas; i++) {
         for (j = 0; j < global.keyTypes; j++) {
             global.save_kidKey[i, j] = global.kidKey[i, j]
@@ -105,12 +106,15 @@ ds_map_add(saveMap, "kidATK",   global.save_kidATK)
 ds_map_add(saveMap, "kidDEF",   global.save_kidDEF)
 ds_map_add(saveMap, "kidEXP",   global.save_kidEXP)
 ds_map_add(saveMap, "kidLevel", global.save_kidLevel)
+ds_map_add(saveMap, "persistentKeys", global.save_persistentKeys)
 
 for (h = 0; h < array_height_2d(global.save_kidKey); h++) {
     for (i = 0; i < global.keyTypes; i++) {
         ds_map_add(saveMap, "kidKey[" + string(h) + "," + string(i) + "]", global.save_kidKey[h, i])
     }
 }
+
+
 
 // Save amount of areas separately
 ds_map_add(saveMap, "keyAreas", array_height_2d(global.save_kidKey)) 

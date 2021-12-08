@@ -19,8 +19,12 @@ switch global.currentArea { // Change key rendering for each area; different spr
     break;
 }
 
+draw_sprite_ext(sprInfinityKey, 0, xx + 96, yy+((offset+6)*32), 1, 1, 0, c_white, 1)
+
 draw_set_halign(0)
 for (i = 0; i <= 4; i++) {
     scrDrawTextOutline(xx+32,  yy+((i+offset)*32)-2, global.kidKey[global.currentArea, i],   c_white, c_black)
     scrDrawTextOutline(xx+128, yy+((i+offset)*32)-2, global.kidKey[global.currentArea, i+5], c_white, c_black)
 }
+
+scrDrawTextOutline(xx+128, yy+((6+offset)*32)-2, global.persistentKeys, c_white, c_black)

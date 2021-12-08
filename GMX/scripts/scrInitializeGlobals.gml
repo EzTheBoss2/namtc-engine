@@ -86,6 +86,7 @@ global.kidDEF = 0;
 
 global.kidEXP = 0;
 global.kidLevel = 1;
+global.persistentKeys = 0;
 
 // Kid keys; define how many key types per area there will be here
 global.keyTypes = 10;
@@ -118,6 +119,7 @@ global.save_kidDEF = 0;
 
 global.save_kidEXP = 0;
 global.save_kidLevel = 1;
+global.save_persistentKeys = 0;
 
 for (h = 0; h < global.keyAreas; h++) {
     for (i = 0; i < global.keyTypes; i++) {

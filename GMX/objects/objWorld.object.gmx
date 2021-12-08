@@ -803,6 +803,8 @@ if global.gameStarted &amp;&amp; global.drawHUD {
                 break;
             }
             
+            draw_sprite_ext(sprInfinityKey, 0, 1040, 12 * 32, 1, 1, 0, c_white, 1)
+            
             // Draw all the relevant stats
             draw_set_font(fDefault24)
             draw_set_halign(0)
@@ -817,6 +819,8 @@ if global.gameStarted &amp;&amp; global.drawHUD {
             for (i = 0; i &lt;= 9; i++) {
                 scrDrawTextOutline(1038, (i*32)+30, global.kidKey[global.currentArea, i], c_white, c_black)
             }
+            
+            scrDrawTextOutline(1038, (11*32)+30, global.persistentKeys, c_white, c_black)
             
         break; case 2:  // Right aligned
             draw_sprite(global.hudBacksprite, 1, 1088-288, 0) // Draw backsprite (right)
@@ -844,6 +848,9 @@ if global.gameStarted &amp;&amp; global.drawHUD {
                 break;
             }
             
+            draw_sprite_ext(sprInfinityKey, 0, 1024, 17 * 32, 1, 1, 0, c_white, 1)
+            
+            
             // Draw all the relevant stats
             draw_set_font(fDefault24)
             draw_set_halign(2)
@@ -859,6 +866,7 @@ if global.gameStarted &amp;&amp; global.drawHUD {
                 scrDrawTextOutline(926, ((i+11)*32)-2, global.kidKey[global.currentArea, i+5], c_white, c_black)
             }
             
+            scrDrawTextOutline(1022, (17*32)-2, global.persistentKeys, c_white, c_black)
         break;
         // No default, it should be very obvious if something's wrong
     }

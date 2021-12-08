@@ -153,6 +153,8 @@ global.screenShader = -1;</code>
     <instance objName="objGravityUp" x="384" y="352" name="inst_0041EF34" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGravityDown" x="256" y="128" name="inst_4BFD7DBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWater2" x="576" y="320" name="inst_F2E7274F" locked="0" code="" scaleX="6" scaleY="5" colour="4294967295" rotation="0"/>
+    <instance objName="objKey" x="256" y="448" name="inst_A6424DC6" locked="0" code="area = -1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objDoor" x="320" y="448" name="inst_57F691C2" locked="0" code="area = -1&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bAllTiles" x="0" y="0" w="32" h="32" xo="32" yo="32" id="10002621" name="inst_602A54DF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
