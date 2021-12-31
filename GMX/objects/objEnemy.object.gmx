@@ -33,6 +33,7 @@ atk = 7;        // Set enemy stats in the create event of child
 def = 0;
 hp = 10;        
 name = "Test Enemy"
+xp = 1
 
 gradientCol1 = make_colour_rgb(0, 128, 128)
 gradientCol2 = make_colour_rgb(0, 0, 128)
@@ -126,6 +127,8 @@ if dmgtaken &lt;= 0 &amp;&amp; dmgtaken2 &lt;= 0 {
             <string>var dmgtaken = atk - global.kidDEF
 var dmgtaken2 = global.kidATK - def
 
+
+
 if dmgtaken &gt; 0 { // We can damage the Kid; do we initiate a fight?
     if dmgtaken2 &gt; 0 { // Both can damage each other; start the fight
         global.enemy = battleEnemy; // what enemy should we load in?
@@ -133,6 +136,7 @@ if dmgtaken &gt; 0 { // We can damage the Kid; do we initiate a fight?
         global.enemyHP = hp;
         global.enemyATK = atk;
         global.enemyDEF = def;
+        global.enemyXP = xp;
         global.enemyName = name;
         global.enemyID = myID;
         
@@ -141,6 +145,8 @@ if dmgtaken &gt; 0 { // We can damage the Kid; do we initiate a fight?
         global.kidOldY = objPlayer.y
         global.kidOldGrav = objPlayer.gravity
         global.oldRoom = room;
+        
+        audio_pause_sound(global.currentMusic)
         
         show_debug_message("Leaving room! global.oldRoom is " + string(global.oldRoom))
         show_debug_message("global.enemyID is " + string(global.enemyID))
@@ -183,7 +189,9 @@ if dmgtaken &gt; 0 { // We can damage the Kid; do we initiate a fight?
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var dmgtaken = atk - global.kidDEF
+            <string>draw_self()
+
+var dmgtaken = atk - global.kidDEF
 var dmgtaken2 = global.kidATK - def
 
 if dmgtaken &gt; 0 { // We can damage the Kid; do we initiate a fight?

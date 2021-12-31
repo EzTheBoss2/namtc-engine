@@ -613,57 +613,6 @@ if (global.debugMode &amp;&amp; room == rTitle)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw the game screen
-
-// Should we draw in widescreen mode (outside game by default)?
-if global.screenShader != -1 {      // Allow one screen shader
-    shader_set(global.screenShader)
-    shader_set_uniform_f(shader_get_uniform(global.screenShader, "time"), shdTime/100)
-}
-
-draw_enable_alphablend(false) // Disable alphablend; fixes glitch with water and translucent objects
-
-if (!global.gameStarted) || global.widescreen {
-    draw_surface(application_surface, 0, 0)
-} else {
-
-    switch global.screenPosition {
-        case 0:
-            draw_surface_stretched(application_surface, 288, 0, 800, 608)
-        break; case 1:
-            draw_surface_stretched(application_surface, 144, 0, 800, 608)
-        break; case 2:
-            draw_surface_stretched(application_surface, 0, 0, 800, 608)
-        break;
-    }
-
-}
-
-draw_enable_alphablend(true) // Re-enable alphablend for other objects
-
-if global.screenShader != -1 {
-    shader_reset()
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///draw pause screen
 
 if (global.gamePaused)  //check if game is paused to draw the pause screen
@@ -763,6 +712,7 @@ if global.gameStarted &amp;&amp; global.drawHUD {
             draw_sprite(sprHUDHeart_Placeholder,  0, 32, 32+96)
             draw_sprite(sprATKPickup_Placeholder, 0, 32, 64+96)
             draw_sprite(sprDEFPickup_Placeholder, 0, 32, 96+96)
+            draw_sprite(sprHUDEXP_Placeholder, 0, 32, 128+96)
              
             scrDrawKeys(32, 32, 10) // Draw keys &amp; HUD
             
@@ -775,6 +725,7 @@ if global.gameStarted &amp;&amp; global.drawHUD {
             scrDrawTextOutline(70, 29+96, string(global.kidHP), c_white, c_black)
             scrDrawTextOutline(70, 61+96, string(global.kidATK), c_white, c_black)
             scrDrawTextOutline(70, 93+96, string(global.kidDEF), c_white, c_black)
+            scrDrawTextOutline(70, 125+96, string(global.kidEXP), c_white, c_black)
             
         break; case 1:  // Center aligned
             draw_sprite(global.hudBacksprite, 0, -144, 0) // Draw backsprite (left)
@@ -786,6 +737,7 @@ if global.gameStarted &amp;&amp; global.drawHUD {
             draw_sprite(sprHUDHeart_Placeholder,  0, 16, 32+96)
             draw_sprite(sprATKPickup_Placeholder, 0, 16, 64+96)
             draw_sprite(sprDEFPickup_Placeholder, 0, 16, 96+96)
+            draw_sprite(sprHUDEXP_Placeholder, 0, 16, 128+96)
         
             switch global.currentArea { // Change key rendering for each area; different sprites
                 default:
@@ -814,7 +766,7 @@ if global.gameStarted &amp;&amp; global.drawHUD {
             scrDrawTextOutline(54, 29+96, string(global.kidHP), c_white, c_black)
             scrDrawTextOutline(54, 61+96, string(global.kidATK), c_white, c_black)
             scrDrawTextOutline(54, 93+96, string(global.kidDEF), c_white, c_black)
-            
+            scrDrawTextOutline(54, 125+96, string(global.kidEXP), c_white, c_black)
             draw_set_halign(2)
             for (i = 0; i &lt;= 9; i++) {
                 scrDrawTextOutline(1038, (i*32)+30, global.kidKey[global.currentArea, i], c_white, c_black)
@@ -831,6 +783,7 @@ if global.gameStarted &amp;&amp; global.drawHUD {
             draw_sprite(sprHUDHeart_Placeholder,  0, 1024, 32+96)
             draw_sprite(sprATKPickup_Placeholder, 0, 1024, 64+96)
             draw_sprite(sprDEFPickup_Placeholder, 0, 1024, 96+96)
+            draw_sprite(sprHUDEXP_Placeholder, 0, 1024, 128+96)
             
             switch global.currentArea { // Change key rendering for each area; different sprites
                 default:
@@ -860,7 +813,7 @@ if global.gameStarted &amp;&amp; global.drawHUD {
             scrDrawTextOutline(1024-2, 29+96, string(global.kidHP), c_white, c_black)
             scrDrawTextOutline(1024-2, 61+96, string(global.kidATK), c_white, c_black)
             scrDrawTextOutline(1024-2, 93+96, string(global.kidDEF), c_white, c_black)
-            
+            scrDrawTextOutline(1024-2, 125+96, string(global.kidEXP), c_white, c_black)
             for (i = 0; i &lt;= 4; i++) {
                 scrDrawTextOutline(1022, ((i+11)*32)-2, global.kidKey[global.currentArea, i], c_white, c_black)
                 scrDrawTextOutline(926, ((i+11)*32)-2, global.kidKey[global.currentArea, i+5], c_white, c_black)
@@ -872,6 +825,57 @@ if global.gameStarted &amp;&amp; global.drawHUD {
     }
 
 
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw the game screen
+
+// Should we draw in widescreen mode (outside game by default)?
+if global.screenShader != -1 {      // Allow one screen shader
+    shader_set(global.screenShader)
+    shader_set_uniform_f(shader_get_uniform(global.screenShader, "time"), shdTime/100)
+}
+
+draw_enable_alphablend(false) // Disable alphablend; fixes glitch with water and translucent objects
+
+if (!global.gameStarted) || global.widescreen {
+    draw_surface(application_surface, 0, 0)
+} else {
+
+    switch global.screenPosition {
+        case 0:
+            draw_surface_stretched(application_surface, 288, 0, 800, 608)
+        break; case 1:
+            draw_surface_stretched(application_surface, 144, 0, 800, 608)
+        break; case 2:
+            draw_surface_stretched(application_surface, 0, 0, 800, 608)
+        break;
+    }
+
+}
+
+draw_enable_alphablend(true) // Re-enable alphablend for other objects
+
+if global.screenShader != -1 {
+    shader_reset()
 }
 </string>
           </argument>

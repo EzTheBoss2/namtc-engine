@@ -45,6 +45,7 @@ global.pauseDelay = 0;      //sets pause delay so that the player can't quickly 
 
 global.currentMusicID = -1;  //keeps track of what song the current music is
 global.currentMusic = -1;    //keeps track of current main music instance
+global.currentBattleMusic = -1;    //keeps track of current main battle instance
 global.deathSound = -1;     //keeps track of death sound when the player dies
 global.gameOverMusic = -1;   //keeps track of game over music instance
 global.musicFading = false;     //keeps track of whether the music is being currently faded out

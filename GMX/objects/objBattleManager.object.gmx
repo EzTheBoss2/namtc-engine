@@ -29,6 +29,7 @@
 
 // show_debug_message("Current room is " + string(room))
 maxHP = global.enemyHP;
+xp = 0
 if variable_global_exists("enemy") {
     myEnemy = instance_create(400, 550, global.enemy) // Save to variable to track stats
     
@@ -37,7 +38,9 @@ if variable_global_exists("enemy") {
         def = global.enemyDEF
         hp = global.enemyHP
         name = global.enemyName
+        
     }
+    xp = global.enemyXP
 } else {
     show_debug_message("No enemy found!!")
     myEnemy = objSpikeTriggerDown // something random that won't be in the room
@@ -79,11 +82,35 @@ global.noPause = true; // no cheating!
             <string>// Enemy's dead, we're leaving
 
 global.saveRoomObject[global.oldRoom, global.enemyID] = true; // Ensure the enemy doesn't immediately respawn when you return
-
+global.kidEXP += xp;
 with instance_create(0, 0, objTransition) {
     targetRoom = global.oldRoom
     overwritepos = true;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scrStopBattleMusic();
+audio_resume_all();
 </string>
           </argument>
         </arguments>

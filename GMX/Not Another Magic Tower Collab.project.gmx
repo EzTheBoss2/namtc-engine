@@ -209,7 +209,9 @@
       <script>scripts\scrResetWindowSize.gml</script>
       <script>scripts\scrGetMusic.gml</script>
       <script>scripts\scrPlayMusic.gml</script>
+      <script>scripts\scrPlayBattleMusic.gml</script>
       <script>scripts\scrStopMusic.gml</script>
+      <script>scripts\scrStopBattleMusic.gml</script>
       <scripts name="controls">
         <script>scripts\scrAnyControllerButton.gml</script>
         <script>scripts\scrButtonCheck.gml</script>
@@ -225,6 +227,9 @@
     <scripts name="NAMTC">
       <script>scripts\scrDamagePlayer.gml</script>
       <script>scripts\scrDrawKeys.gml</script>
+      <script>scripts\mouse_in_window.gml</script>
+      <script>scripts\scrMouse_x.gml</script>
+      <script>scripts\scrMouse_x_gui.gml</script>
     </scripts>
     <scripts name="Ease Functions">
       <script>scripts\EaseLinear.gml</script>
@@ -274,6 +279,7 @@
     <font>fonts\fDefault24</font>
     <font>fonts\fDefault18</font>
     <font>fonts\fDefault12</font>
+    <font>fonts\fMouseover</font>
   </fonts>
   <objects name="objects">
     <objects name="world">
@@ -324,6 +330,7 @@
     </objects>
     <objects name="killers">
       <object>objects\objPlayerKiller</object>
+      <object>objects\objPlayerKillerNAMTG</object>
       <object>objects\objSpikeUp</object>
       <object>objects\objSpikeRight</object>
       <object>objects\objSpikeLeft</object>
@@ -393,6 +400,7 @@
       <object>objects\objBossIndicator</object>
       <object>objects\objGameClear</object>
     </objects>
+    <object>objects\objNeon_Miku</object>
     <objects name="NAMTC">
       <objects name="(Internal objects)">
         <object>objects\objPersistentObjectManager</object>
@@ -402,6 +410,8 @@
         <object>objects\objEnemyBattle</object>
         <object>objects\objPauseMenu</object>
         <object>objects\objTransition</object>
+        <object>objects\objMouseover</object>
+        <object>objects\objTestMousePos</object>
       </objects>
       <object>objects\objDoor</object>
       <object>objects\objKey</object>
