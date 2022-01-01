@@ -119,6 +119,7 @@
     <sprites name="NAMTC">
       <sprite>sprites\sprDoor_Placeholder</sprite>
       <sprite>sprites\sprEnemyPlaceholder</sprite>
+      <sprite>sprites\sprBattleHeart_Large</sprite>
       <sprites name="Keys">
         <sprite>sprites\sprKey</sprite>
         <sprite>sprites\sprCrossKey</sprite>
@@ -165,11 +166,33 @@
       <sprite>sprites\sprTerrainMeltIcon</sprite>
       <sprite>sprites\sprAllSeeingEye</sprite>
     </sprites>
-    <sprite>sprites\sprBattleHeart_Large</sprite>
+    <sprites name="NAMTG">
+      <sprite>sprites\sprNAMTG_GreenKey</sprite>
+      <sprite>sprites\sprNAMTG_HPUp</sprite>
+      <sprite>sprites\sprNAMTG_IronKey</sprite>
+      <sprite>sprites\sprNAMTG_RedDoor</sprite>
+      <sprite>sprites\sprNAMTG_RedKey</sprite>
+      <sprite>sprites\sprNAMTG_WiseMan1</sprite>
+      <sprite>sprites\sprNAMTG_WiseMan2</sprite>
+      <sprite>sprites\sprNAMTG_YellowDoor</sprite>
+      <sprite>sprites\sprNAMTG_YellowKey</sprite>
+      <sprite>sprites\sprNAMTG_AnoyingFairy</sprite>
+      <sprite>sprites\sprNAMTG_AttackUp</sprite>
+      <sprite>sprites\sprNAMTG_BlueDoor</sprite>
+      <sprite>sprites\sprNAMTG_BlueKey</sprite>
+      <sprite>sprites\sprNAMTG_DefUp</sprite>
+      <sprite>sprites\sprNAMTG_GreenDoor</sprite>
+    </sprites>
     <sprites name="test commits">
       <sprite>sprites\sprMiyamoto</sprite>
     </sprites>
+<<<<<<< Updated upstream
     <sprite>sprites\sprInfinityKey</sprite>
+=======
+    <sprites name="Tutorials">
+      <sprite>sprites\sprTutorialWhiteSpikeUp</sprite>
+    </sprites>
+>>>>>>> Stashed changes
   </sprites>
   <backgrounds name="background">
     <background>background\bAllTiles</background>
@@ -180,6 +203,10 @@
     <backgrounds name="Example Screen">
       <background>background\bExampleRoomTileset</background>
       <background>background\bExampleRoomBackground</background>
+    </backgrounds>
+    <backgrounds name="NAMTG">
+      <background>background\bgNAMTG_MostTiles</background>
+      <background>background\background8</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -420,6 +447,9 @@
       <object>objects\objDEFPickup</object>
       <object>objects\objEnemyBullet</object>
     </objects>
+    <objects name="Tutorial">
+      <object>objects\objTutorialVisuals</object>
+    </objects>
     <objects name="ExampleScreen">
       <object>objects\objTerrainMelt</object>
       <object>objects\objTerrainMeltCircle</object>
@@ -451,6 +481,9 @@
     <room>rooms\rExampleRoom</room>
     <room>rooms\rExampleEnd</room>
     <room>rooms\rBattle</room>
+    <rooms name="Tutorial">
+      <room>rooms\rTutorial1</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
